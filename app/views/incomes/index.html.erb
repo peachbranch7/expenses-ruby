@@ -1,1 +1,61 @@
-<%= render "shared/header" %>
+<div class="footerFixed">
+  <%= render "shared/header" %>
+  <div class="post-content-parent">
+    <div class="post-content">
+      <div class="left-content">
+        <div class="title"><%= @this_month %>月の支出</div>
+        <div class="post-list-content">
+          <% @spendings_time.each do |spending| %>
+            <ul class="post-list">
+              <li class="post-list-data-date"><%= spending.date %></li>
+              <ul>
+                <li><%= link_to '詳細', '#', class:"link_pass" %></li>
+                <li><%= link_to '編集', '#', class:"link_pass" %></li>
+                <li><%= link_to '削除', '#', class:"link_pass", method: :delete %></li>
+              </ul>
+              <li class="post-list-data"><%= spending.category %></li>
+              <li class="post-list-data"><%= image_tag 'money.png', size: '50x50' %>¥<%= spending.price %></li>
+            </ul>
+          <% end %>
+        </div>
+      </div>
+      <div class="center-content">
+        <div class="title"><%= @this_month %>月の収入</div>
+          <div class="post-list-content">
+            <% @incomes_time.each do |income| %>
+              <ul class="post-list">
+                <li class="post-list-data-date"><%= income.date %></li>
+                <ul>
+                  <li><%= link_to '詳細', '#', class:"link_pass" %></li>
+                  <li><%= link_to '編集', '#', class:"link_pass" %></li>
+                  <li><%= link_to '削除', '#', class:"link_pass", method: :delete %></li>
+                </ul>
+                <li class="post-list-data"><%= income.category %></li>
+                <li class="post-list-data"><%= image_tag 'money.png', size: '50x50' %>¥<%= income.price %></li>
+              </ul>
+            <% end %>
+          </div>
+      </div>
+      <div class="right-content">
+        <div class="title"><%= @this_month %>月の収支</div>
+          <div class="right-content-post">
+            <div class="right-content-upper">
+            </div>
+            <div class="right-content-bottom">
+              <div class="income-sum">
+                今月の収入 <%= @income_sum %>円
+              </div>
+              <div class = "spending-sum">
+                今月の出費 -<%= @spending_sum %>円
+              </div>
+              <div class="expense-sum">
+                収支 計 <%= @expense_sum %>円
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= render "shared/footer2" %>
+</div>
