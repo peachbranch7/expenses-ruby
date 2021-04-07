@@ -1,5 +1,6 @@
 class IncomesController < ApplicationController
   def index
+    @spendings_time = Spending.where(date: Time.now.beginning_of_month..Time.now.end_of_month).where(user_id: current_user.id).order(date: "ASC")
   end
 
   def new
