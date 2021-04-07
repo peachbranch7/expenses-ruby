@@ -1,3 +1,55 @@
-<%= link_to '新規登録', new_user_registration_path, class: "link_under_line" %>
-<%= link_to 'ログイン', new_user_session_path, class: "link_under_line" %>
-<%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+<header class="header_a">
+  <div class="container">
+    <!— ! ロゴエリア —————————— —>
+    <div class="area_logo_header">
+      <%= link_to 'The-Expenses', root_path, class: "title-name" %>
+      <%= link_to root_path, target: "_blank" do %>
+        <%= image_tag 'etc.png' , size: '70x70', class:"logo" %>
+      <% end %>
+      <% if user_signed_in? %>
+        <%= link_to '支出', "#", class: "post" %>
+        <%= link_to '収入', "#", class: "post" %>
+      <% end %>
+    </div>
+    <!— ! ナビゲーション —————————— —>
+    <nav class="area_nav_header">
+      <ul class="list_nav_header">
+        <% if user_signed_in? %>
+        <div class="user-name"><%= current_user.name %></div>
+        <% end %>
+        <div class="hamburger-menu">
+          <input type="checkbox" id="menu-btn-check">
+          <label for="menu-btn-check" class="menu-btn"><span></span></label>
+          <div class="menu-content">
+            <ul>
+              <% if user_signed_in? %>
+                <li>
+                  <%= link_to 'カレンダー', "#" %>
+                </li>
+                <li>
+                  <%= link_to 'マイページ編集', "#" %>
+                </li>
+                <li>
+                  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+                </li>
+                <li>
+                  <%= link_to 'トップページへ', root_path %>
+                </li>
+              <% else %>
+                <li>
+                  <%= link_to 'ログイン', new_user_session_path, class: "link_under_line" %>
+                </li>
+                <li>
+                  <%= link_to '新規登録', new_user_registration_path, class: "link_under_line" %>
+                </li>
+                <li>
+                  <%= link_to 'トップページへ', root_path %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </ul>
+    </nav>
+  </div>
+</header>
