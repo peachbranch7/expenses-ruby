@@ -7,6 +7,7 @@ class IncomesController < ApplicationController
     @incomes_time = Income.where(date: Time.now.beginning_of_month..Time.now.end_of_month).where(user_id: current_user.id).order(date: "ASC")
     @this_month = Time.new.month
     @income_sum = @incomes_time.sum(:price)
+    @spending_sum = @spendings_time.sum(:price)
   end
 
   def new
