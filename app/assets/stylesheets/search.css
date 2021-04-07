@@ -60,12 +60,7 @@
   margin-left: 2px;
 }
 
-.previous-letter {
-  text-decoration: none;
-  color: #20b2aa;
-}
-
-.next-letter {
+a:-webkit-any-link {
   text-decoration: none;
   color: #20b2aa;
 }
