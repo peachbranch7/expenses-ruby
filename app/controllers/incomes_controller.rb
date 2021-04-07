@@ -35,6 +35,19 @@ class IncomesController < ApplicationController
     redirect_to root_path
   end
 
+  def edit
+    @income = Income.find(params[:id])
+  end
+
+  def update
+    @income = Income.find(params[:id])
+    if @income.update(income_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
   private
   def income_params
     params.require(:income).permit(:price, :category, :memo, :date).merge(user_id: current_user.id)
