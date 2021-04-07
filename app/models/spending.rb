@@ -6,5 +6,9 @@ class Spending < ApplicationRecord
     validates :date
   end
 
+  def start_time
+    self.date
+  end
+
   belongs_to :user
 end
