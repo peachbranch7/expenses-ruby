@@ -10,7 +10,7 @@
               <li class="post-list-data-date"><%= spending.date %></li>
               <ul>
                 <li><%= link_to '詳細', spending_path(spending.id), class:"link_pass" %></li>
-                <li><%= link_to '編集', '#', class:"link_pass" %></li>
+                <li><%= link_to '編集', edit_spending_path(spending.id), class:"link_pass" %></li>
                 <li><%= link_to '削除', spending_path(spending.id), class:"link_pass", method: :delete %></li>
               </ul>
               <li class="post-list-data"><%= spending.category %></li>
@@ -27,7 +27,7 @@
                 <li class="post-list-data-date"><%= income.date %></li>
                 <ul>
                   <li><%= link_to '詳細', income_path(income.id), class:"link_pass" %></li>
-                  <li><%= link_to '編集', '#', class:"link_pass" %></li>
+                  <li><%= link_to '編集', edit_income_path(income.id), class:"link_pass" %></li>
                   <li><%= link_to '削除', income_path(income.id), class:"link_pass", method: :delete %></li>
                 </ul>
                 <li class="post-list-data"><%= income.category %></li>

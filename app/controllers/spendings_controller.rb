@@ -23,6 +23,19 @@ class SpendingsController < ApplicationController
     redirect_to root_path
   end
 
+  def edit
+    @spending = Spending.find(params[:id])
+  end
+
+  def update
+    @spending = Spending.find(params[:id])
+    if @spending.update(spending_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
   private
   def spending_params
     params.require(:spending).permit(:price, :category, :memo, :date).merge(user_id: current_user.id)
