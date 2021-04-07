@@ -8,6 +8,7 @@ class IncomesController < ApplicationController
     @this_month = Time.new.month
     @income_sum = @incomes_time.sum(:price)
     @spending_sum = @spendings_time.sum(:price)
+    @expense_sum = @income_sum - @spending_sum
   end
 
   def new
