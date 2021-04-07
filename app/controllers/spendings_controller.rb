@@ -13,6 +13,10 @@ class SpendingsController < ApplicationController
     end
   end
 
+  def show
+    @spending = Spending.find(params[:id])
+  end
+
   private
   def spending_params
     params.require(:spending).permit(:price, :category, :memo, :date).merge(user_id: current_user.id)
