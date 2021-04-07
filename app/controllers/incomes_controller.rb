@@ -29,6 +29,12 @@ class IncomesController < ApplicationController
     @income = Income.find(params[:id])
   end
 
+  def destroy
+    @income = Income.find(params[:id])
+    @income.destroy
+    redirect_to root_path
+  end
+
   private
   def income_params
     params.require(:income).permit(:price, :category, :memo, :date).merge(user_id: current_user.id)
