@@ -36,6 +36,10 @@ class SpendingsController < ApplicationController
     end
   end
 
+  def search
+    @spendings = Spending.where(user_id: current_user.id).includes(:user).order(date: "ASC")
+  end
+
   private
   def spending_params
     params.require(:spending).permit(:price, :category, :memo, :date).merge(user_id: current_user.id)
