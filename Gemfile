@@ -60,3 +60,5 @@ gem 'pry-rails'
 gem 'chartkick'
 gem 'groupdate'
 gem 'lazy_high_charts'
+gem "simple_calendar", "~> 2.0"
+gem 'rails-i18n'
