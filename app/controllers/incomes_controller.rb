@@ -2,7 +2,7 @@ class IncomesController < ApplicationController
   require "time"
 
   before_action :income_id, only: [:show, :destroy, :edit, :update]
-
+  before_action :move_to_root, only: [:show, :edit, :update, :destroy, :search]
 
   def index
     @spendings_time = Spending.where(date: Time.now.beginning_of_month..Time.now.end_of_month).where(user_id: current_user.id).order(date: "ASC")
@@ -58,5 +58,10 @@ class IncomesController < ApplicationController
   def income_id
     @income = Income.find(params[:id])
   end
-  
+
+  def move_to_root
+    if current_user.id != @income.user.id
+      redirect_to root_path
+    end
+  end
 end
