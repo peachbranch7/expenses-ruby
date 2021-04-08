@@ -1,5 +1,7 @@
 class SpendingsController < ApplicationController
 
+  before_action :spending_id, only: [:show, :destroy, :edit, :update]
+  before_action :move_to_root, only: [:show, :edit, :update, :destroy]
   def new
     @spending = Spending.new
   end
@@ -14,21 +16,17 @@ class SpendingsController < ApplicationController
   end
 
   def show
-    @spending = Spending.find(params[:id])
   end
 
   def destroy
-    @spending = Spending.find(params[:id])
     @spending.destroy
     redirect_to root_path
   end
 
   def edit
-    @spending = Spending.find(params[:id])
   end
 
   def update
-    @spending = Spending.find(params[:id])
     if @spending.update(spending_params)
       redirect_to root_path
     else
@@ -43,5 +41,15 @@ class SpendingsController < ApplicationController
   private
   def spending_params
     params.require(:spending).permit(:price, :category, :memo, :date).merge(user_id: current_user.id)
+  end
+
+  def spending_id
+    @spending = Spending.find(params[:id])
+  end
+
+  def move_to_root
+    if current_user.id != @spending.user.id
+      redirect_to root_path
+    end
   end
 end

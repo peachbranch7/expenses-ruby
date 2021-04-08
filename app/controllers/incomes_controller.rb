@@ -1,6 +1,8 @@
 class IncomesController < ApplicationController
   require "time"
 
+  before_action :income_id, only: [:show, :destroy, :edit, :update]
+  before_action :move_to_root, only: [:show, :edit, :update, :destroy, :search]
 
   def index
     @spendings_time = Spending.where(date: Time.now.beginning_of_month..Time.now.end_of_month).where(user_id: current_user.id).order(date: "ASC")
@@ -26,21 +28,17 @@ class IncomesController < ApplicationController
   end
 
   def show
-    @income = Income.find(params[:id])
   end
 
   def destroy
-    @income = Income.find(params[:id])
     @income.destroy
     redirect_to root_path
   end
 
   def edit
-    @income = Income.find(params[:id])
   end
 
   def update
-    @income = Income.find(params[:id])
     if @income.update(income_params)
       redirect_to root_path
     else
@@ -55,5 +53,15 @@ class IncomesController < ApplicationController
   private
   def income_params
     params.require(:income).permit(:price, :category, :memo, :date).merge(user_id: current_user.id)
+  end
+
+  def income_id
+    @income = Income.find(params[:id])
+  end
+
+  def move_to_root
+    if current_user.id != @income.user.id
+      redirect_to root_path
+    end
   end
 end
