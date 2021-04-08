@@ -1,7 +1,7 @@
 class SpendingsController < ApplicationController
 
   before_action :spending_id, only: [:show, :destroy, :edit, :update]
-
+  before_action :move_to_root, only: [:show, :edit, :update, :destroy]
   def new
     @spending = Spending.new
   end
@@ -45,5 +45,11 @@ class SpendingsController < ApplicationController
 
   def spending_id
     @spending = Spending.find(params[:id])
+  end
+
+  def move_to_root
+    if current_user.id != @spending.user.id
+      redirect_to root_path
+    end
   end
 end
