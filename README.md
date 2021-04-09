@@ -2,18 +2,18 @@
 The-Expenses
 
 # 概要
-家計簿アプリケーションで、グラフやカレンダーを用いて収支管理ができます。<br><br><br>
+グラフやカレンダーを用いて収支管理ができる家計簿アプリケーションです。<br><br><br>
 
 # 本番環境
 https://the-expenses-95.herokuapp.com/<br><br><br>
 
 # ログイン情報(テスト用)
-- email: 
-- password: 
+- email: peach@gmail.com
+- password: peach12345
 <br><br><br>
 # 制作背景
 今ある既存の家計簿アプリケーションは資産の管理など様々な機能が盛り込まれていて、便利な反面使いづらいと感じていました。  
-家計簿の本来の目的は無駄遣いを減らすために収支管理ができることであると私は考えているので、収支管理に特化した機能を持つアプリケーションが欲しいという思いから作成しました。(月単位で収支を管理したい)<br><br><br>
+家計簿の本来の目的は収支管理ができることであると私は考えているので、収支管理に特化した機能を持つアプリケーションが欲しいという思いから作成しました。(月単位で収支を管理したい)<br><br><br>
 
 
 
@@ -41,6 +41,7 @@ https://the-expenses-95.herokuapp.com/<br><br><br>
 
 # 入力機能(収入、支出)
 <a href="https://gyazo.com/862608e14c4d20d490f306f4ebda0852"><img src="https://i.gyazo.com/862608e14c4d20d490f306f4ebda0852.gif" alt="Image from Gyazo" width="1000"/></a>
+
 入力機能は支出と収入の二つのフォームがあります。  
 トップページのヘッダー上部の「支出」と「収入」という文字にカーソルを合わせクリックするとそれぞれの入力フォームに遷移します。
 入力フォームではそれぞれの項目を埋めて、下部の「SEND」ボタンをクリックすると一覧ページに戻ります。<br><br><br>
@@ -71,6 +72,7 @@ https://the-expenses-95.herokuapp.com/<br><br><br>
 
 # グラフ機能(chartkick, highcharts)
 <a href="https://gyazo.com/9007662969125e601a38faa731a64f5d"><img src="https://i.gyazo.com/9007662969125e601a38faa731a64f5d.gif" alt="Image from Gyazo" width="572"/></a>
+
 該当月の各項目の支出のグラフが表示されます。  
 ここでは、何の項目に出費が多いかを可視化することができ、収支が管理しやすくなることを目的にしています。
 また、該当月の収入の合計と支出の合計、収入と支出の差を表示することで該当月の合計の収支を可視化できます。<br><br><br>
@@ -91,31 +93,25 @@ https://the-expenses-95.herokuapp.com/<br><br><br>
 
 # 使用技術(開発環境)
 ## バックエンド
----
 Ruby, Ruby on Rails
 
 ## フロントエンド
----
 Html, Css, JavaScript
 
 ## データベース
----
 MySQL, SequelPro
 
 ## インフラ
----
 Heroku
 
 ## ソース管理
----
+
 GitHub, GitHubDesktop
 
 ## テスト
----
 Rspec
 
 ## エディタ
----
 VSCode<br><br><br>
 
 # 課題や今後実装したい機能
