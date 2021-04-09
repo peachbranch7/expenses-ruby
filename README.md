@@ -11,9 +11,13 @@ https://the-expenses-95.herokuapp.com/<br><br><br>
 - email: peach@gmail.com
 - password: peach12345
 <br><br><br>
+
 # 制作背景
 今ある既存の家計簿アプリケーションは資産の管理など様々な機能が盛り込まれていて、便利な反面使いづらいと感じていました。  
 家計簿の本来の目的は収支管理ができることであると私は考えているので、収支管理に特化した機能を持つアプリケーションが欲しいという思いから作成しました。(月単位で収支を管理したい)<br><br><br>
+
+# 要件定義
+https://docs.google.com/spreadsheets/d/1snFgivknfB_BC2ffHZamqrz6KsGUSf7kIpquJ6RASOQ/edit#gid=282075926
 
 
 
