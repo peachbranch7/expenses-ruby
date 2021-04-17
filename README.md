@@ -95,6 +95,13 @@ https://docs.google.com/spreadsheets/d/1snFgivknfB_BC2ffHZamqrz6KsGUSf7kIpquJ6RA
 
 - GitHubにおいて、自分や第三者がコードを見たときにcommit内容を容易に把握するために細かい粒度でcommitを行いました。<br><br><br>
 
+# AWS構成図
+[![Image from Gyazo](https://i.gyazo.com/f5a6a21eed1864646d08f316bc52b852.png)](https://gyazo.com/f5a6a21eed1864646d08f316bc52b852)<br><br>
+- WebサーバーはNginx、アプリケーションサーバーはUnicornを使用しています。
+- Capistranoを使用することでGitHubへpush後に自動デプロイされます。
+<br><br><br>
+
+
 # 使用技術(開発環境)
 ## バックエンド
 Ruby, Ruby on Rails
@@ -106,10 +113,15 @@ Html, Css, JavaScript
 MySQL, SequelPro
 
 ## インフラ
-Heroku
+AWS(EC2),Capistrano
+
+## Webサーバー(本番環境)
+nginx
+
+# アプリケーションサーバー(本番環境)
+unicorn
 
 ## ソース管理
-
 GitHub, GitHubDesktop
 
 ## テスト
