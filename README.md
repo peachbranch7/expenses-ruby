@@ -5,7 +5,7 @@ The-Expenses
 グラフやカレンダーを用いて収支管理ができる家計簿アプリケーションです。<br><br><br>
 
 # 本番環境
-https://the-expenses-95.herokuapp.com/<br><br><br>
+http://the-expenses.work<br><br><br>
 
 # ログイン情報(テスト用)
 - email: peach@gmail.com
