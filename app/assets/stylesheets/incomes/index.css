@@ -33,6 +33,16 @@ body {
   line-height: 40px;
 }
 
+.arrow-last-month {
+  margin-right: 15px;
+  color: #20b2aa;
+}
+
+.arrow-next-month {
+  margin-left: 15px;
+  color: #20b2aa;
+}
+
 .post-list-data-date {
   border-bottom: 2px solid #eee;
   text-align: center;
