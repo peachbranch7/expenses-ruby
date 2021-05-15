@@ -5,8 +5,23 @@ class IncomesController < ApplicationController
   before_action :move_to_root, only: [:show, :edit, :update, :destroy, :search]
 
   def index
-    @spendings_time = Spending.where(date: Time.now.beginning_of_month..Time.now.end_of_month).where(user_id: current_user.id).order(date: "ASC")
-    @incomes_time = Income.where(date: Time.now.beginning_of_month..Time.now.end_of_month).where(user_id: current_user.id).order(date: "ASC")
+    @year_income = params[:year_income] || Time.now.year 
+    @year_spending = params[:year_spending] || Time.now.year 
+    @month_income = params[:month_income] || Time.now.month
+    @month_spending = params[:month_spending] || Time.now.month
+
+    @start_time_income = Time.new(@year_income, @month_income, 1)
+    @end_time_income = @start_time_income.end_of_month
+    @start_time_spending = Time.new(@year_spending, @month_spending, 1)
+    @end_time_spending = @start_time_spending.end_of_month
+    
+    @prev_date_income = @start_time_income -1.month
+    @next_date_income = @start_time_income +1.month
+    @prev_date_spending = @start_time_spending -1.month
+    @next_date_spending = @start_time_spending +1.month
+
+    @incomes_time = Income.where(date: @start_time_income..@end_time_income).where(user_id: current_user.id).order(date: "ASC")
+    @spendings_time = Spending.where(date: @start_time_spending..@end_time_spending).where(user_id: current_user.id).order(date: "ASC")
     @this_month = Time.new.month
     @income_sum = @incomes_time.sum(:price)
     @spending_sum = @spendings_time.sum(:price)
