@@ -3,7 +3,28 @@
   <div class="post-content-parent">
     <div class="post-content">
       <div class="left-content">
-        <div class="title"><%= @this_month %>月の支出</div>
+        <div class="title">
+          <%= link_to(
+            '<<', 
+            root_path(
+              :year_spending => @prev_date_spending.year, 
+              :month_spending => @prev_date_spending.month, 
+              :year_income => @start_time_income.year, 
+              :month_income => @start_time_income.month
+            ),
+            class:"arrow-last-month") %>
+            <%= @start_time_spending.month %>月の支出
+            <%= link_to(
+              '>>', 
+              root_path(
+                :year_spending => @next_date_spending.year, 
+                :month_spending => @next_date_spending.month, 
+                :year_income => @start_time_income.year, 
+                :month_income => @start_time_income.month
+              ), 
+              class:"arrow-next-month", 
+              id:"last-month-data-arrow") %>
+        </div>
         <div class="post-list-content">
           <% @spendings_time.each do |spending| %>
             <ul class="post-list">
@@ -20,8 +41,26 @@
         </div>
       </div>
       <div class="center-content">
-        <div class="title"><%= @this_month %>月の収入</div>
-          <div class="post-list-content">
+        <div class="title">
+        <%= link_to(
+          '<<', 
+          root_path(
+            :year_income => @prev_date_income.year, 
+            :month_income => @prev_date_income.month, 
+            :year_spending => @start_time_spending.year, 
+            :month_spending => @start_time_spending.month), 
+          class:"arrow-last-month") %>
+          <%= @start_time_income.month %>月の収入
+          <%= link_to(
+            '>>', 
+            root_path(
+              :year_income => @next_date_income.year, 
+              :month_income => @next_date_income.month,
+              :year_spending => @start_time_spending.year, 
+              :month_spending => @start_time_spending.month), 
+            class:"arrow-next-month") %>
+          </div>
+          <div class="post-list-content" id="post-content">
             <% @incomes_time.each do |income| %>
               <ul class="post-list">
                 <li class="post-list-data-date"><%= income.date %></li>
@@ -37,7 +76,7 @@
           </div>
       </div>
       <div class="right-content">
-        <div class="title"><%= @this_month %>月の収支</div>
+        <div class="title"><%= @this_month %>月の収支データ</div>
           <div class="right-content-post">
             <div class="right-content-upper">
               <%= pie_chart @spending_data.group(:category).sum(:price), thousands: ",", width: "450px", height:"450px", class:"date-graph", library: {title: {text: "今月の支出 計 #{@spending_sum}円"}} %>
