@@ -1,5 +1,9 @@
+html {
+  width:100%;
+}
+
 .simple-calendar {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
  }
 
@@ -64,3 +68,24 @@ a:-webkit-any-link {
   text-decoration: none;
   color: #20b2aa;
 }
+
+@media (max-width: 1024px) {
+  
+  .simple-calendar {
+    width: 80%;
+   }
+   
+  .calendar-content {
+    width:70%;
+    margin:0 auto;
+    height: 80%;
+  }
+}
+
+@media (max-width: 599px) {
+  .calendar-content {
+    width:60%;
+    margin:0 auto;
+  }
+}
+
