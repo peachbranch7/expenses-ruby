@@ -15,7 +15,7 @@
     <nav class="area_nav_header">
       <ul class="list_nav_header">
         <% if user_signed_in? %>
-        <div class="user-name"><%= current_user.name %></div>
+        <span class="user-name"><%= current_user.name %></span>
         <% end %>
         <div class="hamburger-menu">
           <input type="checkbox" id="menu-btn-check">
