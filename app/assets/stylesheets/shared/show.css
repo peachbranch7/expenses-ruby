@@ -34,3 +34,13 @@
   font-size: 14px;
 }
 
+@media (max-width: 1024px) {
+  .footer3 {
+    display: none;
+  }
+
+  .detail-table {
+    margin-top: 140px;
+  }
+}
+

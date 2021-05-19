@@ -158,3 +158,65 @@
   display: contents;
 }
 
+
+@media (max-width: 1024px)  {
+  .form-header {
+    margin: 100px 0 30px 0;
+  }
+
+  .form-date {
+    margin-bottom: 60px;
+  }
+
+  .upper-form {
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .lower-form {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .form-content {
+    width: 100%;
+  }
+
+  span.form-letter {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  span.form-letter {
+    font-size: 12px;
+  }
+
+  .footer {
+    display: none;
+  }
+
+  .upper-form img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .lower-form img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .price-input {
+    width: 70%;
+  }
+
+  .memo-input {
+    width: 63%;
+    height: 60px;
+  }
+
+  .new-income-form .upper-form {
+    width: 100%;
+  }
+}

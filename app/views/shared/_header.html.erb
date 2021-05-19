@@ -15,7 +15,7 @@
     <nav class="area_nav_header">
       <ul class="list_nav_header">
         <% if user_signed_in? %>
-        <div class="user-name"><%= current_user.name %></div>
+        <span class="user-name"><%= current_user.name %></span>
         <% end %>
         <div class="hamburger-menu">
           <input type="checkbox" id="menu-btn-check">
@@ -25,6 +25,12 @@
               <% if user_signed_in? %>
                 <li>
                   <%= link_to 'カレンダー', search_spendings_path %>
+                </li>
+                <li>
+                  <%= link_to '支出フォーム', new_spending_path %>
+                </li>
+                <li>
+                  <%= link_to '収入フォーム', new_income_path %>
                 </li>
                 <li>
                   <%= link_to 'マイページ編集', edit_user_path(current_user) %>
