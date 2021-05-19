@@ -71,21 +71,48 @@ a:-webkit-any-link {
 
 @media (max-width: 1024px) {
   
-  .simple-calendar {
-    width: 80%;
-   }
-   
   .calendar-content {
-    width:70%;
+    width: 90%;
     margin:0 auto;
     height: 80%;
   }
+  .simple-calendar {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  a.calendar_link {
+    font-size: 10px;
+  }
+
+  a.calendar_link_price {
+    font-size: 10px;
+  }
+  
 }
 
-@media (max-width: 599px) {
+@media (max-width: 480px) {
   .calendar-content {
-    width:60%;
+    width:95%;
     margin:0 auto;
+    height: 100%;
+  }
+
+  .simple-calendar {
+    width: 100%;
+    margin: 10px auto;
+  }
+
+  a.calendar_link {
+    display: none;
+  }
+
+  a.calendar_link_price {
+    font-size: 3px;
+  }
+
+  .footer2 {
+    display: none;
   }
 }
 
