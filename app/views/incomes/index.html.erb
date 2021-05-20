@@ -4,7 +4,7 @@
     <div class="post-content">
       <div class="left-content">
         <div class="title">
-          <%= link_to(
+          <%# <%= link_to(
             '<<', 
             root_path(
               :year_spending => @prev_date_spending.year, 
@@ -14,8 +14,12 @@
               :year_spending_graph => @start_time_graph.year, 
               :month_spending_graph => @start_time_graph.month), 
             class:"arrow-last-month") %>
-            <%= @start_time_spending.month %>月の支出
-            <%= link_to(
+            <% if @this_month == @start_time_income.month %>
+              <div style="color:#20b2aa"><%= @this_month %>月のデータ</div>
+            <% else %>
+              <%= @start_time_income.month %>月の収入
+            <% end %>
+            <%# <%= link_to(
               '>>', 
               root_path(
                 :year_spending => @next_date_spending.year, 
@@ -44,7 +48,7 @@
       </div>
       <div class="center-content">
         <div class="title">
-        <%= link_to(
+        <%# <%= link_to(
           '<<', 
           root_path(
             :year_income => @prev_date_income.year, 
@@ -54,8 +58,12 @@
             :year_spending_graph => @start_time_graph.year, 
             :month_spending_graph => @start_time_graph.month),  
           class:"arrow-last-month") %>
-          <%= @start_time_income.month %>月の収入
-          <%= link_to(
+          <% if @this_month == @start_time_income.month %>
+            <div style="color:#20b2aa"><%= @this_month %>月のデータ</div>
+          <% else %>
+            <%= @start_time_income.month %>月の収入
+          <% end %>
+          <%# <%= link_to(
             '>>', 
             root_path(
               :year_income => @next_date_income.year, 
@@ -93,7 +101,11 @@
               :year_income => @prev_date_income.year, 
               :month_income => @prev_date_income.month),
             class:"arrow-last-month") %>
-            <%= @start_time_graph.month %>月のデータ
+            <% if @this_month == @start_time_income.month %>
+              <div style="color:#20b2aa"><%= @this_month %>月のデータ</div>
+            <% else %>
+              <%= @start_time_income.month %>月の収入
+            <% end %>
             <%= link_to(
             '>>', 
             root_path(
