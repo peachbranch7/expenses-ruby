@@ -14,10 +14,10 @@
               :year_spending_graph => @start_time_graph.year, 
               :month_spending_graph => @start_time_graph.month), 
             class:"arrow-last-month") %>
-            <% if @this_month == @start_time_income.month %>
-              <div style="color:#20b2aa"><%= @this_month %>月のデータ</div>
+            <% if @this_month == @start_time_spending.month %>
+              <div style="border-bottom: 3px solid #20b2aa; color:gray;"><%= @this_month %>月の支出</div>
             <% else %>
-              <%= @start_time_income.month %>月の収入
+              <%= @start_time_spending.month %>月の支出
             <% end %>
             <%# <%= link_to(
               '>>', 
@@ -59,7 +59,7 @@
             :month_spending_graph => @start_time_graph.month),  
           class:"arrow-last-month") %>
           <% if @this_month == @start_time_income.month %>
-            <div style="color:#20b2aa"><%= @this_month %>月のデータ</div>
+            <div style="border-bottom: 3px solid #20b2aa; color:gray;"><%= @this_month %>月の収入</div>
           <% else %>
             <%= @start_time_income.month %>月の収入
           <% end %>
@@ -102,9 +102,9 @@
               :month_income => @prev_date_income.month),
             class:"arrow-last-month") %>
             <% if @this_month == @start_time_income.month %>
-              <div style="color:#20b2aa"><%= @this_month %>月のデータ</div>
+              <div style="border-bottom: 3px solid #20b2aa; color:gray;"><%= @this_month %>月のデータ</div>
             <% else %>
-              <%= @start_time_income.month %>月の収入
+              <%= @start_time_income.month %>月のデータ
             <% end %>
             <%= link_to(
             '>>', 
@@ -123,13 +123,25 @@
             </div>
             <div class="right-content-bottom">
               <div class="income-sum">
-                今月の収入 <%= @this_month_income_sum %>円
+                <% if @this_month == @start_time_income.month %>
+                  <span style="color:#20b2aa"><%= @this_month %>月の収入</span> <span style="color:#2078b2">+<%= @this_month_income_sum %>円</span>
+                <% else %>
+                  <%= @start_time_income.month %>月の収入 <span style="color:#2078b2">+<%= @this_month_income_sum %>円</span>
+                <% end %>
               </div>
               <div class = "spending-sum">
-                今月の出費 -<%= @this_month_spending_sum %>円
+                <% if @this_month == @start_time_income.month %>
+                  <span style="color:#20b2aa"><%= @this_month %>月の支出</span> <span style="color:red">-<%= @this_month_spending_sum %>円</span>
+                <% else %>
+                  <%= @start_time_income.month %>月の支出 <span style="color:red"> -<%= @this_month_spending_sum %>円</span>
+                <% end %>
               </div>
               <div class="expense-sum">
-                収支 計 <%= @expense_sum %>円
+                <% if @this_month == @start_time_income.month %>
+                  <span style="color:#20b2aa">収支 計</span> <%= @expense_sum %>円
+                <% else %>
+                  収支 計</span> <%= @expense_sum %>円
+                <% end %>
               </div>
             </div>
           </div>
