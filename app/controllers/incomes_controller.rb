@@ -29,8 +29,8 @@ class IncomesController < ApplicationController
     @incomes_time = Income.where(date: @start_time_income..@end_time_income).where(user_id: current_user.id).order(date: "ASC")
     @spendings_time = Spending.where(date: @start_time_spending..@end_time_spending).where(user_id: current_user.id).order(date: "ASC")
     @this_month = Time.new.month
-    @this_month_income_sum = Income.where(date: Time.now.beginning_of_month..Time.now.end_of_month).where(user_id: current_user.id).order(date: "ASC").sum(:price)
-    @this_month_spending_sum = Spending.where(date: Time.now.beginning_of_month..Time.now.end_of_month).where(user_id: current_user.id).order(date: "ASC").sum(:price)
+    @this_month_income_sum = Income.where(date: @start_time_graph..@end_time_graph).where(user_id: current_user.id).order(date: "ASC").sum(:price)
+    @this_month_spending_sum = Spending.where(date: @start_time_graph..@end_time_graph).where(user_id: current_user.id).order(date: "ASC").sum(:price)
     @expense_sum = @this_month_income_sum - @this_month_spending_sum
     @spending_data = Spending.where(date: @start_time_graph..@end_time_graph).where(user_id: current_user.id)
   end
