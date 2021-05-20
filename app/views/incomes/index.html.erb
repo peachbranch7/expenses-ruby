@@ -124,9 +124,9 @@
             <div class="right-content-bottom">
               <div class="income-sum">
                 <% if @this_month == @start_time_income.month %>
-                  <span style="color:#20b2aa"><%= @this_month %>月の収入</span> <span style="color:#2078b2">+<%= @this_month_income_sum %>円</span>
+                  <span style="color:#20b2aa"><%= @this_month %>月の収入</span> <span style="color:#2078b2"> <%= @this_month_income_sum %>円</span>
                 <% else %>
-                  <%= @start_time_income.month %>月の収入 <span style="color:#2078b2">+<%= @this_month_income_sum %>円</span>
+                  <%= @start_time_income.month %>月の収入 <span style="color:#2078b2"> <%= @this_month_income_sum %>円</span>
                 <% end %>
               </div>
               <div class = "spending-sum">
@@ -138,9 +138,21 @@
               </div>
               <div class="expense-sum">
                 <% if @this_month == @start_time_income.month %>
-                  <span style="color:#20b2aa">収支 計</span> <%= @expense_sum %>円
+                  <% if @expense_sum.positive? %>
+                    <span style="color:#20b2aa">収支 計</span><span style="color:#2078b2"> +<%= @expense_sum %>円</span>
+                  <% elsif @expense_sum ==  0 %>
+                    <span>収支 計</span><span> <%= @expense_sum %>円</span>
+                  <% else %>
+                    <span style="color:#20b2aa">収支 計</span><span style="color:red"> <%= @expense_sum %>円</span>
+                  <% end %>
                 <% else %>
-                  収支 計</span> <%= @expense_sum %>円
+                  <% if @expense_sum.positive? %>
+                    <span>収支 計</span><span style="color:#2078b2"> +<%= @expense_sum %>円</span>
+                  <% elsif @expense_sum ==  0 %>
+                    <span>収支 計</span><span> <%= @expense_sum %>円</span>
+                  <% else %>
+                    <span>収支 計</span><span style="color:red"><%= @expense_sum %>円</span>
+                  <% end %>
                 <% end %>
               </div>
             </div>
