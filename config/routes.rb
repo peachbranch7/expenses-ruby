@@ -6,11 +6,13 @@ Rails.application.routes.draw do
   resources :incomes do
     collection do
       get 'search'
+      get 'report'
     end
   end
   resources :spendings do
     collection do
       get 'search'
+      get 'report'
     end
   end
 end
