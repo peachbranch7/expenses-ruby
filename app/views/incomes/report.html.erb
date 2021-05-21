@@ -1,0 +1,21 @@
+<%= render "shared/header" %>
+  <div class="report-main">
+    <div class="left-part">
+      <div class="report-title">
+        <%= @this_month %>月の支出グラフ
+      </div>
+      <%= pie_chart @spending_data.group(:category).sum(:price), thousands: ",", width: "100%", height:"100%", class:"date-graph", library: {title: {text: "#{@this_month}月の支出 計 #{@this_month_spending_sum}円"}} %>
+    </div>
+    <div class="center-part">
+      <div class="report-title">
+        <%= @this_month %>月の収入グラフ
+      </div>
+      <%= pie_chart @income_data.group(:category).sum(:price), thousands: ",", width: "100%", height:"100%", class:"date-graph", library: {title: {text: "#{@this_month}月の収入 計 #{@this_month_income_sum}円"}} %>
+    </div>
+    <div class="right-part">
+      <div class="report-title">
+        <%= @this_month %>月の収支遷移
+      </div>
+    </div>
+  </div>
+<%= render "shared/footer3" %>
