@@ -71,6 +71,14 @@ class IncomesController < ApplicationController
     @spendings = Spending.where(user_id: current_user.id).includes(:user).order(date: "ASC")
   end
 
+  def report
+    @this_month = Time.new.month
+    @spending_data = Spending.where(date: Time.now.beginning_of_month..Time.now.end_of_month).where(user_id: current_user.id)
+    @income_data = Income.where(date: Time.now.beginning_of_month..Time.now.end_of_month).where(user_id: current_user.id)
+    @this_month_income_sum = Income.where(date: Time.now.beginning_of_month..Time.now.end_of_month).where(user_id: current_user.id).order(date: "ASC").sum(:price)
+    @this_month_spending_sum = Spending.where(date: Time.now.beginning_of_month..Time.now.end_of_month).where(user_id: current_user.id).order(date: "ASC").sum(:price)
+  end
+
   private
   def income_params
     params.require(:income).permit(:price, :category, :memo, :date).merge(user_id: current_user.id)
