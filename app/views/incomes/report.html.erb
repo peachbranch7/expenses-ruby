@@ -2,19 +2,66 @@
   <div class="report-main">
     <div class="left-part">
       <div class="report-title">
-        <%= @this_month %>月の支出グラフ
+      <%= link_to(
+            '<<', 
+             report_incomes_path(
+              :year_spending_report_graph => @prev_date_spending_report_graph.year, 
+              :month_spending_report_graph => @prev_date_spending_report_graph.month,
+              :year_income_report_graph => @prev_date_income_report_graph.year, 
+              :month_income_report_graph => @prev_date_income_report_graph.month),
+            class:"arrow-last-month") %>
+          <% if @this_month == @start_time_spending_report_graph.month %>
+            <span style="color:gray;"><%= @this_month %>月の支出グラフ</span>
+          <% else %>
+            <%= @start_time_spending_report_graph.month %>月の支出グラフ
+          <% end %>
+        <%= link_to(
+            '>>', 
+             report_incomes_path(
+              :year_spending_report_graph => @next_date_spending_report_graph.year, 
+              :month_spending_report_graph => @next_date_spending_report_graph.month,
+              :year_income_report_graph => @next_date_income_report_graph.year, 
+              :month_income_report_graph => @next_date_income_report_graph.month),
+            class:"arrow-next-month") %>
       </div>
-      <%= pie_chart @spending_data.group(:category).sum(:price), thousands: ",", width: "100%", height:"100%", class:"date-graph", library: {title: {text: "#{@this_month}月の支出 計 #{@this_month_spending_sum}円"}} %>
+      <div class="report-pie_chart">
+        <%= pie_chart @spending_data.group(:category).sum(:price), thousands: ",", width: "100%", height:"100%", class:"date-graph", label: "支出", library: {title: {text: "#{@this_month}月の支出 計 #{@this_month_spending_sum}円"}} %>
+      </div>
     </div>
     <div class="center-part">
       <div class="report-title">
-        <%= @this_month %>月の収入グラフ
+        <%= link_to(
+            '<<', 
+             report_incomes_path(
+              :year_spending_report_graph => @prev_date_spending_report_graph.year, 
+              :month_spending_report_graph => @prev_date_spending_report_graph.month,
+              :year_income_report_graph => @prev_date_income_report_graph.year, 
+              :month_income_report_graph => @prev_date_income_report_graph.month),
+            class:"arrow-last-month") %>
+          <% if @this_month == @start_time_income_report_graph.month %>
+            <span style="color:gray;"><%= @this_month %>月の収入グラフ</span>
+          <% else %>
+            <%= @start_time_income_report_graph.month %>月の収入グラフ
+          <% end %>
+        <%= link_to(
+            '>>', 
+             report_incomes_path(
+              :year_spending_report_graph => @next_date_spending_report_graph.year, 
+              :month_spending_report_graph => @next_date_spending_report_graph.month,
+              :year_income_report_graph => @next_date_income_report_graph.year, 
+              :month_income_report_graph => @next_date_income_report_graph.month),
+            class:"arrow-next-month") %>
       </div>
-      <%= pie_chart @income_data.group(:category).sum(:price), thousands: ",", width: "100%", height:"100%", class:"date-graph", library: {title: {text: "#{@this_month}月の収入 計 #{@this_month_income_sum}円"}} %>
+      <div class="report-pie_chart">
+        <%= pie_chart @income_data.group(:category).sum(:price), thousands: ",", width: "100%", height:"100%", class:"date-graph",label: "収入", library: {title: {text: "#{@this_month}月の収入 計 #{@this_month_income_sum}円"}} %>
+      </div>
     </div>
     <div class="right-part">
       <div class="report-title">
-        <%= @this_month %>月の収支遷移
+        収支遷移
+      </div>
+      <div class="report-line_chart">
+        <%= line_chart [{name: "収入計", data: @income_data_graph.group_by_month(:date).sum(:price), label: "収入"}, {name: "支出計", data: @spending_data_graph.group_by_month(:date).sum(:price), label: "支出"}], colors: ["tomato", "#20b2aa"], curve: false %>
       </div>
     </div>
   </div>
