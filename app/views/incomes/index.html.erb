@@ -119,7 +119,7 @@
             </div>
           <div class="right-content-post">
             <div class="right-content-upper">
-              <%= pie_chart @spending_data.group(:category).sum(:price), thousands: ",", width: "100%", height:"100%", class:"date-graph", library: {title: {text: "今月の支出 計 #{@this_month_spending_sum}円"}} %>
+              <%= pie_chart @spending_data.group(:category).sum(:price), thousands: ",", width: "100%", height:"100%", class:"date-graph", label: "支出", library: {title: {text: "今月の支出 計 #{@this_month_spending_sum}円"}} %>
             </div>
             <div class="right-content-bottom">
               <div class="income-sum">
