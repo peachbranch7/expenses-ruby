@@ -15,7 +15,7 @@
   font-size: 20px;
   text-align: center;
   width: 100%;
-  margin-top: 5px;
+  margin-top: 20px;
   border-bottom: 3px solid #eee;
   text-decoration: none;
   height: 50px;
@@ -28,9 +28,23 @@
   border-top: transparent;
 }
 
+.report-pie_chart {
+  margin-top: 130px;
+}
+
 .right-part {
   width: 40%;
   height: 100vh;
   border: 3px solid #eee;
   border-top: transparent;
+}
+
+.report-line_chart {
+  margin-top: 150px;
+}
+
+@media (max-width: 1024px) {
+  #chart-3 {
+    width: 300px;
+  }
 }
