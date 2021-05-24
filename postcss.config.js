@@ -6,6 +6,9 @@ module.exports = {
       autoprefixer: {
         flexbox: 'no-2009'
       },
+      performance: {
+        maxAssetSize: 100000,
+      },
       stage: 3
     })
   ]
