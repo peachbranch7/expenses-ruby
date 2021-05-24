@@ -71,6 +71,39 @@ class IncomesController < ApplicationController
     @spendings = Spending.where(user_id: current_user.id).includes(:user).order(date: "ASC")
   end
 
+  def report
+    @year_spending_report_graph = params[:year_spending_report_graph] || Time.now.year
+    @year_income_report_graph = params[:year_income_report_graph] || Time.now.year
+    @month_spending_report_graph = params[:month_spending_report_graph] || Time.now.month
+    @month_income_report_graph = params[:month_income_report_graph] || Time.now.month
+  
+    @start_time_spending_report_graph = Time.new(@year_spending_report_graph, @month_spending_report_graph, 1)
+    @end_time_spending_report_graph = @start_time_spending_report_graph.end_of_month
+    @start_time_income_report_graph = Time.new(@year_income_report_graph, @month_income_report_graph, 1)
+    @end_time_income_report_graph = @start_time_income_report_graph.end_of_month
+  
+    @prev_date_spending_report_graph = @start_time_spending_report_graph -1.month
+    @next_date_spending_report_graph = @start_time_spending_report_graph +1.month
+    @prev_date_income_report_graph = @start_time_income_report_graph -1.month
+    @next_date_income_report_graph = @start_time_income_report_graph +1.month
+
+
+    @this_month_income_sum = Income.where(date: @start_time_income_report_graph..@end_time_income_report_graph).where(user_id: current_user.id).order(date: "ASC").sum(:price)
+    @this_month_spending_sum = Spending.where(date: @start_time_spending_report_graph..@end_time_spending_report_graph).where(user_id: current_user.id).order(date: "ASC").sum(:price)
+    @expense_sum = @this_month_income_sum - @this_month_spending_sum
+
+    @this_month = Time.new.month
+    @spending_data = Spending.where(date: @start_time_spending_report_graph..@end_time_spending_report_graph).where(user_id: current_user.id)
+    @income_data = Income.where(date: @start_time_income_report_graph..@end_time_income_report_graph).where(user_id: current_user.id)
+
+    @incomes_time = Income.where(date: @start_time_income_report_graph..@end_time_income_report_graph).where(user_id: current_user.id).order(date: "ASC")
+    @spendings_time = Spending.where(date: @start_time_spending_report_graph..@end_time_spending_report_graph).where(user_id: current_user.id).order(date: "ASC")
+
+
+    @spending_data_graph = Spending.all.where(user_id: current_user.id)
+    @income_data_graph = Income.all.where(user_id: current_user.id)
+  end
+
   private
   def income_params
     params.require(:income).permit(:price, :category, :memo, :date).merge(user_id: current_user.id)

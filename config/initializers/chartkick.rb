@@ -6,7 +6,7 @@ Chartkick.options = {
             "orange",
             "turquoise",
             "pink",
-            "yellow",
+            "crimson",
             "rgba(0, 102, 255, 0.822)",
             "rgba(255, 0, 0, 0.616)",
             "burlywood",
