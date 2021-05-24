@@ -1,1 +1,1 @@
-Groupdate.time_zone = "Tokyo"
+Groupdate.time_zone = "Asia/Tokyo"
