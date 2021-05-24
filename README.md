@@ -35,7 +35,7 @@ https://docs.google.com/spreadsheets/d/1snFgivknfB_BC2ffHZamqrz6KsGUSf7kIpquJ6RA
 
 
 # 一覧表示機能(トップページ)
-[![Image from Gyazo](https://i.gyazo.com/fac958efd9dd0f0374c35c47062850f1.png)](https://gyazo.com/fac958efd9dd0f0374c35c47062850f1)  
+[![Image from Gyazo](https://i.gyazo.com/2dd7fd61961ad4777e2cd254b363fb35.png)](https://gyazo.com/2dd7fd61961ad4777e2cd254b363fb35)
   
 新規登録またはログイン後にトップページへ遷移します。  
 収入と支出の入力フォームから入力された情報が一覧で表示され、
@@ -75,11 +75,10 @@ https://docs.google.com/spreadsheets/d/1snFgivknfB_BC2ffHZamqrz6KsGUSf7kIpquJ6RA
 
 
 # グラフ機能(chartkick, highcharts)
-<a href="https://gyazo.com/9007662969125e601a38faa731a64f5d"><img src="https://i.gyazo.com/9007662969125e601a38faa731a64f5d.gif" alt="Image from Gyazo" width="572"/></a>
-
+[![Image from Gyazo](https://i.gyazo.com/92ad1bf750c6cfcee1a74e17b1083d75.png)](https://gyazo.com/92ad1bf750c6cfcee1a74e17b1083d75)
 該当月の各項目の支出のグラフが表示されます。  
 ここでは、何の項目に出費が多いかを可視化することができ、収支が管理しやすくなることを目的にしています。
-また、該当月の収入の合計と支出の合計、収入と支出の差を表示することで該当月の合計の収支を可視化できます。<br><br><br>
+また、前月や次月のデータの確認ができるように、前月に戻ったり、次月に進んだりできます。<br><br><br>
 
 
 
@@ -87,7 +86,16 @@ https://docs.google.com/spreadsheets/d/1snFgivknfB_BC2ffHZamqrz6KsGUSf7kIpquJ6RA
 <a href="https://gyazo.com/b3c536410f0fe708269cb1d6f70e4995"><img src="https://i.gyazo.com/b3c536410f0fe708269cb1d6f70e4995.gif" alt="Image from Gyazo" width="1000"/></a>
 
 一覧ページ右上のハンバーガーメニューをクリックするとリストが表示されます。カレンダーをクリックするとカレンダーが表示されます。  
-ここでは、カレンダーに支出のカテゴリーと金額が表示されています。それぞれの項目をクリックすると、詳細ページに遷移します。<br><br><br>
+ここでは、カレンダーに支出のカテゴリーと金額が表示されています。<br>
+それぞれの項目をクリックすると、詳細ページに遷移します。<br><br><br>
+
+
+# レポート機能(chartkick, highcharts)
+[![Image from Gyazo](https://i.gyazo.com/238e88b3cb6d04fcd62737e75092d30a.png)](https://gyazo.com/238e88b3cb6d04fcd62737e75092d30a)
+トップページに表示されているグラフを詳しく見たい時にこちらのページを表示させます。<br>
+このページには支出の円グラフはもちろん、収入の円グラフと収支遷移の折れ線グラフがあります。
+より詳細に分析できるよう、また可視化できるようにしています。<br>
+また、トップページと同様前月に戻ったり、次月に進んだりしてデータを確認できます。<br><br><br>
 
 # 工夫したポイント
 - 作業工程を細分化するために、まずは画面遷移図を作成し、するべきことをリスト化し、1つずつ実装→デプロイをすることを意識しました。  
