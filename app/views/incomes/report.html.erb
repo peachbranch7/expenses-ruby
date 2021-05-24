@@ -61,7 +61,7 @@
         収支遷移
       </div>
       <div class="report-line_chart">
-        <%= line_chart [{name: "収入計", data: @income_data_graph.group_by_month(:date).sum(:price), label: "収入"}, {name: "支出計", data: @spending_data_graph.group_by_month(:date).sum(:price), label: "支出"}], colors: ["tomato", "#20b2aa"], curve: false %>
+        <%= line_chart [{name: "収入計", data: @income_data_graph.group_by_month(:date).sum(:price), label: "収入"}, {name: "支出計", data: @spending_data_graph.group_by_month(:date).sum(:price), label: "支出"}], colors: ["tomato", "#20b2aa"], discrete: false %>
       </div>
     </div>
   </div>
