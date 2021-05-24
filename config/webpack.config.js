@@ -4,7 +4,7 @@ module.exports = {
   mode: 'production',
   entry: [
     'whatwg-fetch',
-    path.resolve(__dirname, 'src', 'App.js')
+    path.resolve(__dirname, 'src', 'application.js')
   ],
   module: {
     rules: [
@@ -32,7 +32,7 @@ module.exports = {
     ]
   },
   output: {
-    filename: 'bundle.js',
+    filename: 'application.js',
     path: path.resolve(__dirname, 'public'),
   },
 };
