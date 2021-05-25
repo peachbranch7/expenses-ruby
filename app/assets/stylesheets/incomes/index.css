@@ -66,6 +66,16 @@ body {
   align-content: flex-start;
 }
 
+.income-image {
+  margin-right: 12px;
+}
+
+span.income-price {
+  position:relative;
+  bottom:13px;
+  font-size: 17px;
+}
+
 .title {
   font-size: 20px;
   text-align: center;
