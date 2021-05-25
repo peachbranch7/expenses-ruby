@@ -41,7 +41,7 @@
                 <li><%= link_to '削除', spending_path(spending.id), class:"link_pass", method: :delete %></li>
               </ul>
               <li class="post-list-data"><%= spending.category %></li>
-              <li class="post-list-data"><%= image_tag 'money.png', size: '50x50' %>¥<%= spending.price %></li>
+              <li class="post-list-data"><%= image_tag "#{spending.image}", size: '65x60', class:"income-image" %><span class="income-price">¥<%= spending.price %></span></li>
             </ul>
           <% end %>
         </div>
@@ -84,7 +84,7 @@
                   <li><%= link_to '削除', income_path(income.id), class:"link_pass", method: :delete %></li>
                 </ul>
                 <li class="post-list-data"><%= income.category %></li>
-                <li class="post-list-data"><%= image_tag 'money.png', size: '50x50' %>¥<%= income.price %></li>
+                <li class="post-list-data"><%= image_tag "#{income.image}", size: '65x60', class:"income-image" %><span class="income-price">¥<%= income.price %></span></li>
               </ul>
             <% end %>
           </div>
