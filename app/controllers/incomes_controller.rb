@@ -41,6 +41,21 @@ class IncomesController < ApplicationController
 
   def create
     @income = Income.new(income_params)
+    if @income.category == "給料"
+      @income.image = "salary.png"
+    elsif @income.category == "おこづかい"
+      @income.image = "pocket-money.png"
+    elsif @income.category == "賞与"
+      @income.image = "bonus.png"
+    elsif @income.category == "投資"
+      @income.image = "investing.png"
+    elsif @income.category == "副業"
+      @income.image = "iseconnd-business.png"
+    elsif @income.category == "臨時収入"
+      @income.image = "incidental-income.png"
+    elsif @income.category == "その他"
+      @income.image = "etc.png"
+    end
     if @income.save
       redirect_to root_path
     else 
@@ -106,7 +121,7 @@ class IncomesController < ApplicationController
 
   private
   def income_params
-    params.require(:income).permit(:price, :category, :memo, :date).merge(user_id: current_user.id)
+    params.require(:income).permit(:price, :category, :memo, :date, :image).merge(user_id: current_user.id)
   end
 
   def income_id
