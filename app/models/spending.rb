@@ -4,6 +4,7 @@ class Spending < ApplicationRecord
     validates :category
     validates :memo
     validates :date
+    validates :image
   end
 
   def start_time

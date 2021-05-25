@@ -4,6 +4,7 @@ class Income < ApplicationRecord
     validates :category
     validates :memo
     validates :date
+    validates :image
   end
 
   belongs_to :user
