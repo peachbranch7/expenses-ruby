@@ -267,6 +267,7 @@ svg {
   .right-content {
     width: 100%;
     height: 100%;
+    border-bottom: none;
   }
 
   .right-content-post {
@@ -307,11 +308,27 @@ svg {
     border:1px solid white;
     margin: 10px 10px;
   }
+
+  .right-content-upper {
+    margin-bottom: 15px;
+  }
+
+  
+
+  .highcharts-title {
+    font-size: 8px;
+  }
   
 
   #chart-1 {
     width: 50%;
     height: 60%;
+  }
+
+
+
+  .footer2 {
+    display: none;
   }
   
 }
