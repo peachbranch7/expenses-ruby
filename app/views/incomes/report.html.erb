@@ -58,7 +58,7 @@
     </div>
     <div class="right-part">
       <div class="report-title">
-        収支遷移
+        収支推移
       </div>
       <div class="report-line_chart">
         <%= line_chart [{name: "収入計", data: @income_data_graph.group_by_month(:date, time_zone: "Asia/Tokyo").sum(:price), label: "収入"}, {name: "支出計", data: @spending_data_graph.group_by_month(:date, time_zone: "Asia/Tokyo").sum(:price), label: "支出"}], colors: ["tomato", "#20b2aa"], discrete: false %>
